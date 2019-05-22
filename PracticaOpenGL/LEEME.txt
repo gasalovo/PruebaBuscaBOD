@@ -1,0 +1,36 @@
+Programa de shaders.
+---------------------------
+gVAO union de buffers.
+glUseProgram (que programa vamos a usar)
+glBindVao(id_del_vao)
+DrawElements podemos ir llamando a secciones (de este indice a este otro)
+---------------------------
+Para replicar un objeto ya subido.
+Cambiar la matriz de modelo -> con una misma geometria hacemos N objetos.
+Solo cambia su posicion en el espacio y su traslacion/posicion.
+
+---------------------------
+program, necesita los shaders.
+bindeamos los puntos de entrada de la geometria.
+hacemos el linkado.
+declaramos los uniform una vez linkado el programa.
+---------------------------
+subimos la geometria, podemos subir esto antes de hacer el programa, es indiferente
+
+---------------------------
+cada modelo en un VAO, un cubo, un plano, una esfera...
+
+----------------
+entregar propio codigo comentado
+juanjose.garcia@urjc.es
+asunto: DIM SSV practica
+
+meter otra luz obligatorio
+hacer funcion, con posL, Il, L, V, R, aplicar lo de
+color += tal tal tal
+
+habria que separar model de view (ahora esta ModelView)
+Model habria una matriz por modelo, que es su posicion
+View sería la "camara" y seria comun a todos.
+Para trasladar un modelo le aplicamos traslacion a la Model de ese modelo.
+Para mover la camara aplicariamos traslacion a la View.
