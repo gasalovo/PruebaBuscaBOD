@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 
 public class App {
 
@@ -22,7 +23,7 @@ public class App {
 			searcher.search("", "Angular");
 			searcher.search("", "Console");
 			searcher.search("", "Amigo");
-		} catch (IOException | ParseException e) {
+		} catch (IOException | ParseException | InvalidTokenOffsetsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

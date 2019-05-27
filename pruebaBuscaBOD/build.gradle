@@ -46,6 +46,9 @@ dependencies {
 	
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser
 	compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '8.1.0'
+	
+	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-highlighter
+	compile group: 'org.apache.lucene', name: 'lucene-highlighter', version: '5.0.0'
 }
 
 // In this section you declare where to find the dependencies of your project

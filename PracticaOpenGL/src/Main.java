@@ -243,6 +243,8 @@ public class Main {
 		
 		//cargamos el programa (shader vertices, fragmentos, entradas
 		glUseProgram(program);
+		
+		//primer cubo
 		//subimos los uniform, subimos una matriz 4x4 de float
 		//glUniformMatrix4fv(uModelView,false,modelView);
 		glUniformMatrix4fv(uModel,false,Cube.model);
@@ -265,6 +267,36 @@ public class Main {
 		glDrawElements(GL_TRIANGLES, Cube.cubeNTriangleIndex, GL_UNSIGNED_INT, 0 );
 		//glDrawElements(GL_TRIANGLES, 0, GL_UNSIGNED_INT, 0 );
 		glBindVertexArray(0);
+		
+		//primer cubo
+				
+		//subimos los uniform, subimos una matriz 4x4 de float
+				//glUniformMatrix4fv(uModelView,false,modelView);
+				Cube cube2 = new Cube();
+				//MatrixMaths.translate(cube2.model, 0.6f, 0.0f, 0.0f);
+				
+				glUniformMatrix4fv(uModel,false,cube2.model);
+				MatrixMaths.translate(cube2.model, 0.6f, 0.0f, 0.0f);
+				glUniformMatrix4fv(uView,false,view);
+				
+				glUniformMatrix4fv(uProy,false,proy);
+				glUniform1fv(uBrillo, brillo);
+				//enlazamos el vao a renderizar
+				glBindVertexArray(vao);
+				
+				//vec3 LPos;
+				//glUniform3f(uLPos, v0, v1, v2);
+				//glUniform3fv(ulPos,  value);
+				
+				glActiveTexture(GL_TEXTURE0); //el primer sampler definido, el 0
+				glBindTexture(GL_TEXTURE_2D, colorID);
+				glUniform1i(uColorTex, 0); //el sampler va a tomar el punto entrada 0
+				
+				//gl_triangles (tipo de primitiva, numero triangulos a pintar, ..., desde cual empiezo a pintar, tambien hay un rango)
+				glDrawElements(GL_TRIANGLES, cube2.cubeNTriangleIndex, GL_UNSIGNED_INT, 0 );
+				
+		
+		
 		glUseProgram(0);
 	}
 	void idle( )
@@ -275,7 +307,7 @@ public class Main {
 
 		//MatrixMaths.rotateX(modelView,angle);
 		//MatrixMaths.rotateY(modelView,angle);
-		MatrixMaths.rotateX(Cube.model,angle);
+		//MatrixMaths.rotateX(Cube.model,angle);
 		MatrixMaths.rotateY(Cube.model,angle);
 	}
 	
@@ -311,7 +343,7 @@ public class Main {
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
 		// Create the window
-		window = glfwCreateWindow(600, 600, "Hello World!", NULL, NULL);
+		window = glfwCreateWindow(600, 600, "Practica OpenGL", NULL, NULL);
 		if ( window == NULL )
 			throw new RuntimeException("Failed to create the GLFW window");
 
@@ -358,7 +390,7 @@ public class Main {
 	private GLFWKeyCallbackI keyCallback = 
 			( long window, int key, int scancode, int action, int mods ) ->
 	{
-		angle = 0.05f;
+		//angle = 0.05f;
 		if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE  )
 			glfwSetWindowShouldClose(window, true);
 		if ( key == GLFW_KEY_O && ( action == GLFW_PRESS || action == GLFW_REPEAT ))
@@ -425,7 +457,7 @@ public class Main {
 		// the window or has pressed the ESCAPE key.
 		while ( !glfwWindowShouldClose(window) ) {
 			
-			//idle( );
+			idle( );
 
 			render();
 		
