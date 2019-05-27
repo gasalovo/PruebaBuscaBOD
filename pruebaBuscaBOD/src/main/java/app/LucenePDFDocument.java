@@ -359,7 +359,7 @@ public class LucenePDFDocument
             // Add the tag-stripped contents as a Reader-valued Text field so it will
             // get tokenized and indexed.
             //addTextField(document, "contents", reader);
-            document.add(new TextField("contents", contents, Store.YES));
+            document.add(new TextField("contents", contents, Field.Store.YES));
             //document.add(new StringField("path", file.getPath(), Field.Store.YES));
             //document.add(new StringField("filename", file.getName(), Field.Store.YES));
 
@@ -378,7 +378,7 @@ public class LucenePDFDocument
                 addTextField(document, "All", contents);
                 addTextField(document, "Pages", String.valueOf(pdfDocument.getPages().getCount()));
             }
-            document.add(new StringField("Todo", contents, Field.Store.YES));
+            //document.add(new StringField("Todo", contents, Field.Store.YES));
             int summarySize = Math.min(contents.length(), 500);
             String summary = contents.substring(0, summarySize);
             // Add the summary as an UnIndexed field, so that it is stored and returned

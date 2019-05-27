@@ -49,6 +49,10 @@ dependencies {
 	
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-highlighter
 	compile group: 'org.apache.lucene', name: 'lucene-highlighter', version: '5.0.0'
+	
+	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common
+	compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '8.1.0'
+	
 }
 
 // In this section you declare where to find the dependencies of your project

@@ -14,19 +14,35 @@ public class App {
         
         String indexPath = "C:\\BuscaBOD\\indexes";
         String docsPath = "C:\\BuscaBOD\\pdfs";
+        String[] toFind = {"recibidas", "UNIDO"};
+        String path = "C:\\BuscaBOD\\pdfs\\informe-brechas-2019-03.pdf";
+        
         
         //Indexer indexer = new Indexer(indexPath, docsPath);
         //indexer.doIndex();
         IndexPDFFiles.main(args);
         Searcher searcher = new Searcher(indexPath, docsPath);
         try {
-			searcher.search("", "Angular");
-			searcher.search("", "Console");
-			searcher.search("", "Amigo");
+        	for (String word: toFind) {
+			searcher.search("", word);
+			
+        	}
 		} catch (IOException | ParseException | InvalidTokenOffsetsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
+        
+        try {
+        	High h = new High();
+        	h.highlight( path, toFind );
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
     }
 
 }
