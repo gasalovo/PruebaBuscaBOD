@@ -12,10 +12,10 @@ public class App {
     public static void main(String[] args)
     {
         
-        String indexPath = "C:\\BuscaBOD\\indexes";
-        String docsPath = "C:\\BuscaBOD\\pdfs";
+        String indexPath = "indexes";
+        String docsPath = "pdfs";
         String[] toFind = {"recibidas", "UNIDO"};
-        String path = "C:\\BuscaBOD\\pdfs\\informe-brechas-2019-03.pdf";
+        String path = "pdfs\\informe-brechas-2019-03.pdf";
         
         
         //Indexer indexer = new Indexer(indexPath, docsPath);

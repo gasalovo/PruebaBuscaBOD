@@ -40,10 +40,10 @@ public final class IndexPDFFiles
     public static void main(String[] args)
     {
     	//path donde va la base de datos
-    	String indexPath = "C:\\BuscaBOD\\indexes";
+    	String indexPath = "indexes";
     	
     	//path donde van los pdf
-        String docsPath = "C:\\BuscaBOD\\pdfs";
+        String docsPath = "pdfs";
         
         //true = crear nueva base de datos, false = update base datos existente
         boolean create = true;
